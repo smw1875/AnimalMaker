@@ -16,7 +16,7 @@ public class Screen extends Canvas implements KeyListener {
 	public Screen() {
 		addKeyListener(this);
 		for(int i = 0; i < 2; i++) {
-			car[i] = new Car(0, i*50); // 클래스 배열 초기화 및 위치 값 생성
+			car[i] = new Car(0,i*50); // 클래스 배열 초기화 및 위치 값 생성
 		}
 	}
 	@Override
