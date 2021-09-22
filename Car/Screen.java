@@ -9,22 +9,22 @@ import javax.imageio.ImageIO;
 
 public class Screen extends Canvas implements KeyListener {
 	
-	Car [] car = new Car[2]; //Å¬·¡½º ¹è¿­ »ı¼º
+	Car [] car = new Car[2]; //í´ë˜ìŠ¤ ë°°ì—´ ìƒì„±
 	
 	private static final long serialVersionUID = 1L;
 	
 	public Screen() {
 		addKeyListener(this);
 		for(int i = 0; i < 2; i++) {
-			car[i] = new Car(0, i*50); // Å¬·¡½º ¹è¿­ ÃÊ±âÈ­ ¹× À§Ä¡ °ª »ı¼º
+			car[i] = new Car(i*50, 0); // í´ë˜ìŠ¤ ë°°ì—´ ì´ˆê¸°í™” ë° ìœ„ì¹˜ ê°’ ìƒì„±
 		}
 	}
 	@Override
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paint(g);
-		g.drawImage(car[0].image, car[0].x, car[0].y, this); //1¹ø Â÷ ±×¸®±â
-		g.drawImage(car[1].image, car[1].x, car[1].y, this); //2¹ø Â÷ ±×¸®±â
+		g.drawImage(car[0].image, car[0].x, car[0].y, this); //1ë²ˆ ì°¨ ê·¸ë¦¬ê¸°
+		g.drawImage(car[1].image, car[1].x, car[1].y, this); //2ë²ˆ ì°¨ ê·¸ë¦¬ê¸°
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
