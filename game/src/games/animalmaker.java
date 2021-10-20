@@ -25,12 +25,22 @@ public class animalmaker extends JFrame {
 	private ImageIcon onhelpButtonImage = new ImageIcon(Main.class.getResource("../images/onhelp.png"));
 	private ImageIcon helpButtonImage = new ImageIcon(Main.class.getResource("../images/help.png"));
 	
+	private ImageIcon animal1 = new ImageIcon(Main.class.getResource("../images/animal1.png"));
+	private ImageIcon animal2 = new ImageIcon(Main.class.getResource("../images/animal2.png"));
+	private ImageIcon animal3 = new ImageIcon(Main.class.getResource("../images/animal3.png"));
+	
+	
 	private Image animal = new ImageIcon(Main.class.getResource("../images/animal.png")).getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
 	private JButton exitButton = new JButton(exitImage);
 	private JButton startButton = new JButton(startButtonImage);
 	private JButton helpButton = new JButton(helpButtonImage);
+	private JButton animal1Button = new JButton(animal1);
+	private JButton animal2Button = new JButton(animal2);
+	private JButton animal3Button = new JButton(animal3);
+	
+	
 	
 	private int mouseX, mouseY;
 	
@@ -44,8 +54,92 @@ public class animalmaker extends JFrame {
 		setVisible(true);
 		setBackground(new Color(0, 0, 0, 0));
 		setLayout(null);
-
-		exitButton.setBounds(900, 650, 125, 60);
+		animal1Button.setVisible(false);
+		animal2Button.setVisible(false);
+		animal3Button.setVisible(false);
+		
+		
+		animal1Button.setBounds(150, 100, 330, 150);
+		animal1Button.setBorderPainted(false);
+		animal1Button.setContentAreaFilled(false);
+		animal1Button.setFocusPainted(false);
+		animal1Button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				animal1Button.setIcon(animal1); //동물 위에 마우스 올려둘시 변환될 이미지
+				animal1Button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				animal1Button.setIcon(animal1); // 기존 동물 이미지
+				animal1Button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+				animal = new ImageIcon(Main.class.getResource("../images/animal1page.png")).getImage();	
+				animal1Button.setVisible(false);
+				animal2Button.setVisible(false);
+				animal3Button.setVisible(false);
+			}
+		});
+		add(animal1Button);
+		
+		
+		animal2Button.setBounds(500, 100, 330, 150);
+		animal2Button.setBorderPainted(false);
+		animal2Button.setContentAreaFilled(false);
+		animal2Button.setFocusPainted(false);
+		animal2Button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				animal2Button.setIcon(animal2);
+				animal2Button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				animal2Button.setIcon(animal2);
+				animal2Button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+				animal = new ImageIcon(Main.class.getResource("../images/animal1page.png")).getImage();	
+				animal1Button.setVisible(false);
+				animal2Button.setVisible(false);
+				animal3Button.setVisible(false);
+			}
+		});
+		add(animal2Button);
+		
+		
+		animal3Button.setBounds(900, 100, 330, 150);
+		animal3Button.setBorderPainted(false);
+		animal3Button.setContentAreaFilled(false);
+		animal3Button.setFocusPainted(false);
+		animal3Button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				animal3Button.setIcon(animal3);
+				animal3Button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				animal3Button.setIcon(animal3);
+				animal3Button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				animal1Button.setVisible(false);
+				animal2Button.setVisible(false);
+				animal3Button.setVisible(false);
+				animal = new ImageIcon(Main.class.getResource("../images/animal1page.png")).getImage();	
+			}
+		});
+		add(animal3Button);
+		
+		
+		exitButton.setBounds(800, 650, 125, 60);
 		exitButton.setBorderPainted(false);
 		exitButton.setContentAreaFilled(false);
 		exitButton.setFocusPainted(false);
@@ -92,6 +186,10 @@ public class animalmaker extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				startButton.setVisible(false);
 				helpButton.setVisible(false);
+				animal1Button.setVisible(true);
+				animal2Button.setVisible(true);
+				animal3Button.setVisible(true);
+				
 				animal = new ImageIcon(Main.class.getResource("../images/animalselect.jpg")).getImage();
 			}
 		});
@@ -117,6 +215,7 @@ public class animalmaker extends JFrame {
 				//게임시작 이벤트
 				startButton.setVisible(false);
 				helpButton.setVisible(false);
+				animal1Button.setVisible(false);
 				animal = new ImageIcon(Main.class.getResource("../images/helptext.png")).getImage();	
 			}
 		});
@@ -139,7 +238,6 @@ public class animalmaker extends JFrame {
 			}
 		});
 		add(menuBar);
-
 	}
 
 	public void paint(Graphics g) {
