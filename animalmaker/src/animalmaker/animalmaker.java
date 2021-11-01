@@ -24,13 +24,12 @@ public class animalmaker extends JFrame {
 	private ImageIcon startButtonImage = new ImageIcon(Main.class.getResource("../images/start.png"));
 	private ImageIcon onsettingButtonImage = new ImageIcon(Main.class.getResource("../images/onsetting.png"));
 	private ImageIcon settingButtonImage = new ImageIcon(Main.class.getResource("../images/setting.png"));
+	private ImageIcon backButtonImage = new ImageIcon(Main.class.getResource("../images/back.png"));
+	private ImageIcon onbackButtonImage = new ImageIcon(Main.class.getResource("../images/onback.png"));
 	
-	
-	
-	
-	private ImageIcon animal1 = new ImageIcon(Main.class.getResource("../images/animal1.png"));
-	private ImageIcon animal2 = new ImageIcon(Main.class.getResource("../images/animal2.png"));
-	private ImageIcon animal3 = new ImageIcon(Main.class.getResource("../images/animal3.png"));
+	private ImageIcon rabbit = new ImageIcon(Main.class.getResource("../images/rabbit.png"));
+	private ImageIcon cat = new ImageIcon(Main.class.getResource("../images/cat.png"));
+	private ImageIcon raccoon = new ImageIcon(Main.class.getResource("../images/raccoon.png"));
 	
 	private Image animal = new ImageIcon(Main.class.getResource("../images/animal.png")).getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
@@ -38,9 +37,11 @@ public class animalmaker extends JFrame {
 	private JButton exitButton = new JButton(exitButtonImage);
 	private JButton startButton = new JButton(startButtonImage);
 	private JButton settingButton = new JButton(settingButtonImage);
-	private JButton animal1Button = new JButton(animal1);
-	private JButton animal2Button = new JButton(animal2);
-	private JButton animal3Button = new JButton(animal3);
+	private JButton backButton = new JButton(backButtonImage);
+
+	private JButton rabbitButton = new JButton(rabbit);
+	private JButton catButton = new JButton(cat);
+	private JButton raccoonButton = new JButton(raccoon);
 	
 	private int mouseX, mouseY;
 	
@@ -54,89 +55,112 @@ public class animalmaker extends JFrame {
 		setVisible(true);
 		setBackground(new Color(0, 0, 0, 0));
 		setLayout(null);
-		animal1Button.setVisible(false);
-		animal2Button.setVisible(false);
-		animal3Button.setVisible(false);
+		rabbitButton.setVisible(false);
+		catButton.setVisible(false);
+		raccoonButton.setVisible(false);
+		backButton.setVisible(false);
 		
-		
-		animal1Button.setBounds(100, 100, 330, 150);
-		animal1Button.setBorderPainted(false);
-		animal1Button.setContentAreaFilled(false);
-		animal1Button.setFocusPainted(false);
-		animal1Button.addMouseListener(new MouseAdapter() {
+		backButton.setBounds(500, 630, 180, 80);
+		backButton.setBorderPainted(false);
+		backButton.setContentAreaFilled(false);
+		backButton.setFocusPainted(false);
+		backButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				animal1Button.setIcon(animal1); //동물 위에 마우스 올려둘시 변환될 이미지
-				animal1Button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				backButton.setIcon(onbackButtonImage); 
+				backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				animal1Button.setIcon(animal1); // 기존 동물 이미지
-				animal1Button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+				backButton.setIcon(backButtonImage); 
+				backButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				animal = new ImageIcon(Main.class.getResource("../images/animal.png")).getImage();	
+				backButton.setVisible(false);
+				startButton.setVisible(true);
+				settingButton.setVisible(true);
+			}
+		});
+		add(backButton);
+		
+		rabbitButton.setBounds(100, 100, 300, 250);
+		rabbitButton.setBorderPainted(false);
+		rabbitButton.setContentAreaFilled(false);
+		rabbitButton.setFocusPainted(false);
+		rabbitButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rabbitButton.setIcon(rabbit); //동물 위에 마우스 올려둘시 변환될 이미지
+				rabbitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rabbitButton.setIcon(rabbit); // 기존 동물 이미지
+				rabbitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
 				
 				animal = new ImageIcon(Main.class.getResource("../images/animal1page.png")).getImage();	
-				animal1Button.setVisible(false);
-				animal2Button.setVisible(false);
-				animal3Button.setVisible(false);
+				rabbitButton.setVisible(false);
+				catButton.setVisible(false);
+				raccoonButton.setVisible(false);
 			}
 		});
-		add(animal1Button);
-		
-		
-		animal2Button.setBounds(450, 100, 330, 150);
-		animal2Button.setBorderPainted(false);
-		animal2Button.setContentAreaFilled(false);
-		animal2Button.setFocusPainted(false);
-		animal2Button.addMouseListener(new MouseAdapter() {
+		add(rabbitButton);
+			
+		catButton.setBounds(450, 100, 300, 270);
+		catButton.setBorderPainted(false);
+		catButton.setContentAreaFilled(false);
+		catButton.setFocusPainted(false);
+		catButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				animal2Button.setIcon(animal2);
-				animal2Button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				catButton.setIcon(cat);
+				catButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				animal2Button.setIcon(animal2);
-				animal2Button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+				catButton.setIcon(cat);
+				catButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
 				
 				animal = new ImageIcon(Main.class.getResource("../images/animal1page.png")).getImage();	
-				animal1Button.setVisible(false);
-				animal2Button.setVisible(false);
-				animal3Button.setVisible(false);
+				rabbitButton.setVisible(false);
+				catButton.setVisible(false);
+				raccoonButton.setVisible(false);
 			}
 		});
-		add(animal2Button);
+		add(catButton);
 		
-		animal3Button.setBounds(800, 100, 330, 150);
-		animal3Button.setBorderPainted(false);
-		animal3Button.setContentAreaFilled(false);
-		animal3Button.setFocusPainted(false);
-		animal3Button.addMouseListener(new MouseAdapter() {
+		raccoonButton.setBounds(800, 100, 300, 250);
+		raccoonButton.setBorderPainted(false);
+		raccoonButton.setContentAreaFilled(false);
+		raccoonButton.setFocusPainted(false);
+		raccoonButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				animal3Button.setIcon(animal3);
-				animal3Button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				raccoonButton.setIcon(raccoon);
+				raccoonButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				animal3Button.setIcon(animal3);
-				animal3Button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+				raccoonButton.setIcon(raccoon);
+				raccoonButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-				animal1Button.setVisible(false);
-				animal2Button.setVisible(false);
-				animal3Button.setVisible(false);
+				rabbitButton.setVisible(false);
+				catButton.setVisible(false);
+				raccoonButton.setVisible(false);
 				animal = new ImageIcon(Main.class.getResource("../images/animal1page.png")).getImage();	
 			}
 		});
-		add(animal3Button);
-		
+		add(raccoonButton);
 		
 		exitButton.setBounds(800, 630, 180, 80);
 		exitButton.setBorderPainted(false);
@@ -165,7 +189,6 @@ public class animalmaker extends JFrame {
 		});
 		add(exitButton);
 		
-		
 		startButton.setBounds(200, 630, 180, 80);
 		startButton.setBorderPainted(false);
 		startButton.setContentAreaFilled(false);
@@ -185,9 +208,9 @@ public class animalmaker extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				startButton.setVisible(false);
 				settingButton.setVisible(false);
-				animal1Button.setVisible(true);
-				animal2Button.setVisible(true);
-				animal3Button.setVisible(true);
+				rabbitButton.setVisible(true);
+				catButton.setVisible(true);
+				raccoonButton.setVisible(true);
 				
 				animal = new ImageIcon(Main.class.getResource("../images/animalselect.jpg")).getImage();
 			}
@@ -214,7 +237,8 @@ public class animalmaker extends JFrame {
 				//게임시작 이벤트
 				startButton.setVisible(false);
 				settingButton.setVisible(false);
-				animal1Button.setVisible(false);
+				rabbitButton.setVisible(false);
+				backButton.setVisible(true);
 				animal = new ImageIcon(Main.class.getResource("../images/settingtext.png")).getImage();	
 			}
 		});
